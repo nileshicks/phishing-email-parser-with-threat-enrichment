@@ -1,2 +1,6 @@
-# nileshicks.github.io
-this is website
+This project is a Python-based SOC automation pipeline that ingests raw .eml email files and instantly performs both structural header analysis and automated threat enrichment.
+1.	Header Parsing & Telemetry Extraction: Uses Python’s standard email library to parse .eml files, extracting crucial headers (From, To, Subject, Date, Return-Path, Reply-To, and Message-ID).
+2.	Spoofing & Alignment Detection: Reconciles the displayed sender (From) against the envelope sender (Return-Path and Reply-To) to instantly catch domain spoofing and visual deception tactics.
+3.	Authentication Verification: Automatically audits Authentication-Results and Received-SPF headers to return explicit PASS, FAIL, or SOFTFAIL statuses for SPF, DKIM, and DMARC.
+4.	Origin IP Extraction & AbuseIPDB Enrichment: Parses nested Received hops, isolates the true public originating IP (filtering out internal RFC 1918 addresses), and queries the AbuseIPDB v2 API to retrieve confidence scores, ISP metadata, and recent abuse reports.
+5.	Embedded URL Extraction & VirusTotal Scan: Scans plain text and HTML MIME parts for embedded links, standardizes URL identifiers, and queries the VirusTotal v3 REST API to check multi-vendor detection engine statuses.
